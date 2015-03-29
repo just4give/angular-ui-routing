@@ -16,10 +16,10 @@
       <strong>{{errorMgs}}</strong> 
     </div>
     <div class="row margin-bottom-20" ng-show="showPagination">
-      <div class="col-sm-3 col-xs-12 padding-top-20">
-      <strong class="text-success">{{resultCount}} users found</strong>
-      </div>
-      <div class="col-sm-9 col-xs-12">
+      
+      
+
+      <div class="col-sm-12 col-xs-12">
           <ul class="pagination pull-right">
             <li ng-class="prevPageDisabled()">
               <a href ng-click="prevPage()">« Prev</a>
@@ -33,6 +33,9 @@
             </li>
           </ul>
         </div>
+        <div class="col-sm-12 col-xs-12 text-right">
+        <strong class="text-primary  ">{{resultCount}} users found</strong>
+      </div>
 
     </div>
     <div class="row">
