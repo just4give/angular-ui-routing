@@ -1,0 +1,15 @@
+{
+  "name": "angular-ui-router",
+  "version": "0.0.0",
+  "authors": [
+    "mithun"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

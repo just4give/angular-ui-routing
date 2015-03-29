@@ -1,0 +1,16 @@
+{
+  "name": "angular-ui-router",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mithun Das",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.3.5",
+    "debug": "^2.1.2",
+    "serve-static": "^1.9.2"
+  }
+}

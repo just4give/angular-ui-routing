@@ -1,0 +1,49 @@
+    <div class="row margin-bottom-50">
+    <div class="col-xs-12  col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 ">
+        <form class="" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="searchText">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" ng-click="searchUsersNew()"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="showError">
+      
+      <strong>{{errorMgs}}</strong> 
+    </div>
+    <div class="row margin-bottom-20" ng-show="showPagination">
+      <div class="col-sm-3 col-xs-12 padding-top-20">
+      <strong class="text-success">{{resultCount}} users found</strong>
+      </div>
+      <div class="col-sm-9 col-xs-12">
+          <ul class="pagination pull-right">
+            <li ng-class="prevPageDisabled()">
+              <a href ng-click="prevPage()">« Prev</a>
+            </li>
+            <li ng-repeat="n in range()"
+              ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+              <a href="#">{{n+1}}</a>
+            </li>
+            <li ng-class="nextPageDisabled()">
+              <a href ng-click="nextPage()">Next »</a>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-xs-6 " data-ng-repeat="user in userList">
+        <div class="panel panel-default ">
+          <div class="panel-thumbnail "><img ng-src="{{user.avatar_url}}" class="img-responsive"></div>
+          <div class="panel-body  ">
+            <p class="lead"><a href="#/user/{{user.login}}"> {{user.login}}</a></p>
+
+          </div>
+        </div>
+      </div><!--/col-->
+
+    </div>
