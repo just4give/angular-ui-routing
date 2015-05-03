@@ -2,10 +2,15 @@ angular
 	.module('routerApp',['ui.router'])
 	.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
     
     $stateProvider
         
+        .state('login', {
+            url: '/login',
+            templateUrl: 'views/templates/login.html',
+            controller: 'LoginController'
+        })
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/home',
@@ -40,6 +45,32 @@ angular
             
         });
         
-});
+})
+// In the run phase of your Angular application  
+.run(function($rootScope, $state, Authentication) {
+
+  // Listen to '$locationChangeSuccess', not '$stateChangeStart'
+  $rootScope.$on('$locationChangeSuccess', function() {
+    var user = Authentication.getUserInfo();
+    console.log('USer = ' + JSON.stringify(user));
+    if(!user.authnticated){
+        $state.go('login');
+    }
+  })
+})
+.factory("Authentication", ["$http", function ($http) {
+    var userInfo={};
+
+    function login() {
+        userInfo.authnticated = true;
+    }
+    function getUserInfo() {
+        return userInfo;
+    }
+    return {
+        login: login,
+        getUserInfo: getUserInfo
+    };
+}]);
 
 

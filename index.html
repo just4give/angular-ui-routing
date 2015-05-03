@@ -37,12 +37,13 @@
   <script src="public/js/UserDetailsController.js"></script>
   <script src="public/js/AboutController.js"></script>
   <script src="public/js/GlobalController.js"></script>
+  <script src="public/js/LoginController.js"></script>
   
   </head>
 
-  <body ng-app='routerApp'>
+  <body ng-app='routerApp' ng-controller='GlobalController'>
 
-  <nav class="navbar navbar-inverse" role="navigation">
+  <nav class="navbar navbar-inverse" role="navigation" ng-show="isLogged">
     <div class="navbar-header">
         <a class="navbar-brand" ui-sref="home">GitViewer</a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-top-menu">
